@@ -10,6 +10,8 @@ Una volta definita la struttura dati, prendendo come riferimento la card di esem
 2. 
 */
 
+const teamSection = document.querySelector('div.team-container');
+
 const teamMembers = [
     {
         memberImg: './img/wayne-barnett-founder-ceo.jpg',
@@ -27,12 +29,34 @@ const teamMembers = [
         memberRole: 'Developer',
     },
     {
-        memberImg: './img/wayne-barnett-founder-console.jpg',
-        memberName: 'Wayne Barnett',
-        memberRole: 'Founder & CEO',
+        memberImg: './img/barbara-ramos-graphic-designer.jpg',
+        memberName: 'Barbara Ramos',
+        memberRole: 'Graphic Designer',
     },
     {
-        memberImg: './img/wayne-barnett-founder-console.jpg',
-        memberName: 'Wayne Barnett',
-        memberRole: 'Founder & CEO',
+        memberImg: './img/angela-lopez-social-media-manager.jpg',
+        memberName: 'Angela Lopez',
+        memberRole: 'Social Media Manager',
     },
+    {
+        memberImg: './img/angela-caroll-chief-editor.jpg',
+        memberName: 'Angela Lopez',
+        memberRole: 'Social Media Manager',
+    }
+];
+
+
+for(let key in teamMembers){
+    // console.log(teamMembers[key])
+    teamSection.innerHTML += `
+                            <div class="team-card">
+                                <div class="card-image">
+                                    <img src="${teamMembers[key].memberImg}" alt="${teamMembers[key].memberName}"/>
+                                </div>
+                                <div class="card-text">
+                                    <h3>${teamMembers[key].memberName}</h3>
+                                    <p>${teamMembers[key].memberRole}</p>
+                                </div>
+                            </div>`
+}
+

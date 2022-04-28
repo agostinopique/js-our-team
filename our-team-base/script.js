@@ -46,10 +46,11 @@ const teamMembers = [
     }
 ];
 
-// print(teamMembers[0].memberName, teamMembers[0].memberImg, teamMembers[0].memberRole);
 
+// Inizio delle funzioni
 start();
 
+// funzione che crea il template comune a tutti i vari membri del team
 function print(name, img, role){
 
     teamSection.innerHTML += `
@@ -64,7 +65,7 @@ function print(name, img, role){
     </div>`
 }
 
-
+// Funzione che cicla per tutti gli oggetti dell'array e li passa all funzione di stampa
 function start(){
     for(let key in teamMembers){
         print(teamMembers[key].memberName, teamMembers[key].memberImg, teamMembers[key].memberRole);
@@ -72,9 +73,10 @@ function start(){
     }
 }
 
-
+// al click parte l'aggiunta del nuovo membro 
 submitMemberBtn.addEventListener('click', newMember);
 
+// Aggiunta del nuovo membro 
 function newMember(){
     console.log('Nuovo membro aggiunto!');
 
@@ -89,21 +91,22 @@ function newMember(){
         memberRole: roleInput
     };
     console.log(newMember);
+    // pusho il nuovo membro all'interno dell'array
     teamMembers.push(newMember);
 
+    // passo i valori del nuovo membro alla funzione che si occupa della stampa
     print(newMember.memberName, newMember.memberImg, newMember.memberRole);
 
+    // parte la funzione che svuota i campi di input del form della pagina
+    resetForm()
 }
 
-
-
-
-
-
-
-
-
-
+// resetto i campi del form
+function resetForm() {
+    document.getElementById('name').value = '';
+    document.getElementById('role').value = '';
+    document.getElementById('image').value = '';
+}
 
 
 
